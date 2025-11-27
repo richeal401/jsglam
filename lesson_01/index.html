@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="AES MADEITT">
+    <meta name="description" content="HOME PAGE">
+    <title>js glam studio,</title>
+    <link rel="icon" href="img/html_logo.png,jpg" type="image/jpg">
+    <link rel=" stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <h1> JS GLAM STUDIO.</h1>
+
+    <hr>
+    <p>WELCOME TO JS GLAM STUDIO WEBSITE.</p>
+    <image src="html5.png/html5.png.jpg" alt="html5 logo" <h3>ABOUT US</h3>
+
+
+        <hr>
+
+
+
+
+
+        <h4>JS Glam Studio is a modern beauty and styling salon dedicated to enhancing natural beauty and boost self
+            confidence.
+            With a focus on elegance and creativity, we offer premium services—from stunning braids to locs to twist and
+            cornrows. Known for its signature black-and-purple aesthetic and the empowering slogan “Glam Up Girl,” JS
+            Glam
+            Studio blends luxury with professionalism, creating an unforgettable beauty experience for every customer.
+        </h4>
+
+        <h5>WE PROVIDE HOME SERVICES IN ACCRA AND KOFORIDUA</h5>
+
+
+
+
+
+        <a href="#contact">CONTACT US :0553662325/0599357714</a>
+        <br>
+        <a>>Email;jeanetteoffei@gmail.com</a>
+
+
+
+
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Braiding Service Booking</title>
+            <style>
+                body {
+                    font-family: sans-serif;
+                    max-width: 500px;
+                    margin: auto;
+                    padding: 20px;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                label {
+                    font-weight: bold;
+                }
+
+                input,
+                select,
+                textarea,
+                button {
+                    padding: 8px;
+                    font-size: 16px;
+                }
+
+                button {
+                    background: #007bff;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    background: #0056b3;
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <!DOCTYPE html>
+            <html>
+
+            <head>
+                <title>Braiding Service Booking Form</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                    }
+
+                    form {
+                        width: 500px;
+                        margin: 20px auto;
+                        padding: 20px;
+                        border: 1px solid #ccc;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    }
+
+                    label {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="phone"],
+                    select,
+                    textarea {
+                        width: 500px;
+                        height: 40px;
+                        margin-bottom: 20px;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                    }
+
+                    input[type="checkbox"] {
+                        margin-right: 10px;
+                    }
+
+                    button {
+                        background-color: #4CAF50;
+                        color: #fff;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+
+                    button:hover {
+                        background-color: #3e8e41;
+                    }
+                </style>
+            </head>
+
+            <body>
+                <form id="braiding-form">
+                    <h2>Braiding Service Booking Form</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="phone" id="phone" name="phone" required>
+
+                    <label for="location">Location:</label>
+                    <select id="location" name="location" required>
+                        <option value="">Select Location</option>
+                        <option value="Accra">Accra</option>
+                        <option value="Kofuridria">Kofuridria</option>
+                    </select>
+
+                    <label for="service">Braiding Service:</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select Service</option>
+                        <option value="Cornrows">Cornrows </option>
+                        <option value="locs ">locs </option>
+                        <option value="Twists"> Twists</option>
+                        <option value=" Braids">Braids </option>
+                    </select>
+
+                    <label for="allergies">Any allergies or medical conditions:</label>
+                    <textarea id="allergies" name="allergies"></textarea>
+
+                    <form id="braiding-form">
+                        <!-- form fields -->
+                        <button id="submit-btn">Book Now (GHC 20)</button>
+                        <p id="booking-status"></p>
+                    </form>
+
+                    <script>
+                        const form = document.getElementById('braiding-form');
+                        form.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            // Send form data to server for processing
+                            const formData = new FormData(form);
+                            fetch('/book-braiding-service', {
+                                method: 'POST',
+                                body: formData
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    document.getElementById('booking-status').innerText = data.message;
+                                    if (data.message === 'Booking successful') {
+                                        // redirect to success page or display success message
+                                    }
+                                })
+                                .catch(error => console.error(error));
+                        });
+                    </script>
+
+                    <label>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        I agree to the terms and conditions
+                    </label>
+
+                    <button id="submit-btn">Book Now (GHC 20)</button>
+                </form>
+
+                <script>
+                    const form = document.getElementById('braiding-form');
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        // Send form data to server for processing
+                        const formData = new FormData(form);
+                        fetch('/book-braiding-service', {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(response => response.json())
+                            .then(data => console.log(data))
+                            .catch(error => console.error(error));
+                    });
+                </script>
+            </body>
+
+            </html>
+            &lt;&lt;&lt;&copy;aes madeitt &gt;&gt;&gt;
+
+        </body>
+
+        </html>
